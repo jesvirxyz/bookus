@@ -1,14 +1,9 @@
 <div class="row">
   <div class="col-md-6" id="marketing" style="width: 50%; height: 350px"></div>
   <div class="marketing-info col-md-6">
-    <h4>From</h4>
-    <ul>
-      <li>BookIT App</li>
-      <li>Google Maps</li>
-      <li>Facebook</li>
-      <li>Instagram</li>
-      <li>Walk In</li>
-      <li>Drive In</li>
+    <h4><strong>From</strong></h4>
+    <ul *ngFor="let result of newData">
+      <li>{{ result.platform }}</li>
     </ul>
   </div>
 </div>

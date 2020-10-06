@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'app-sales-card',
@@ -16,6 +15,14 @@ export class SalesCardComponent implements OnInit {
   selectedViews = 'Monthly';
   selectedRange = this.getMonth();
   selectedCompare = 'None';
+  cash = [
+    { location: 'Noida', drawer: 12345 },
+    { location: 'Delhi', drawer: 23456 },
+    { location: 'Ghaziabad', drawer: 34567 },
+    { location: 'Haryana', drawer: 45678 },
+  ];
+  view = ['Weekly', 'Monthly', 'Yearly'];
+  location = ['All', 'Noida', 'Delhi', 'Ghaziabad', 'Haryana'];
   monthList = [
     'January',
     'Febuary',

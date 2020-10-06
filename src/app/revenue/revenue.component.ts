@@ -4,49 +4,37 @@ import * as am4charts from '@amcharts/amcharts4/charts';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 am4core.useTheme(am4themes_animated);
 @Component({
-  selector: 'app-marketing-pie-chart',
-  templateUrl: './marketing-pie-chart.component.html',
-  styleUrls: ['./marketing-pie-chart.component.scss'],
+  selector: 'app-revenue',
+  templateUrl: './revenue.component.html',
+  styleUrls: ['./revenue.component.scss'],
 })
-export class MarketingPieChartComponent implements OnInit {
+export class RevenueComponent implements OnInit {
   constructor() {}
   newData = [
     {
-      platform: 'BookIT App',
-      users: 678,
+      revenue: 'Services',
+      sales: 43567,
     },
     {
-      platform: 'Facebook',
-      users: 479,
+      revenue: 'Products',
+      sales: 24156,
     },
     {
-      platform: 'Google Maps',
-      users: 228,
-    },
-    {
-      platform: 'Walk In',
-      users: 549,
-    },
-    {
-      platform: 'Drive In',
-      users: 387,
-    },
-    {
-      platform: 'Instagram',
-      users: 198,
+      revenue: 'Voucher',
+      sales: 14987,
     },
   ];
 
   ngOnInit(): void {
-    var chart = am4core.create('marketing', am4charts.PieChart);
+    var chart = am4core.create('revenue', am4charts.PieChart);
 
     // Add data
     chart.data = this.newData;
 
     // Add and configure Series
     let pieSeries = chart.series.push(new am4charts.PieSeries());
-    pieSeries.dataFields.value = 'users';
-    pieSeries.dataFields.category = 'platform';
+    pieSeries.dataFields.value = 'sales';
+    pieSeries.dataFields.category = 'revenue';
     pieSeries.slices.template.stroke = am4core.color('#fff');
     pieSeries.slices.template.strokeOpacity = 1;
     pieSeries.labels.template.text = '';

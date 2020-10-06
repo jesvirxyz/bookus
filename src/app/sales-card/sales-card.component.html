@@ -6,27 +6,25 @@
           <h2 class="card-title">Sales</h2>
           <div class="example-container">
             <mat-form-field appearance="fill">
-              <mat-label>Location</mat-label>
+              <p>Location</p>
               <mat-select [(value)]="selectedLocation">
-                <mat-option value="All">All</mat-option>
-                <mat-option value="Noida">Noida</mat-option>
-                <mat-option value="Delhi">Delhi</mat-option>
-                <mat-option value="Ghaziabad">Ghaziabad</mat-option>
-                <mat-option value="Haryana">Haryana</mat-option>
+                <div *ngFor="let name of location">
+                  <mat-option value="{{ name }}">{{ name }}</mat-option>
+                </div>
               </mat-select>
             </mat-form-field>
 
             <mat-form-field appearance="fill">
-              <mat-label>Views</mat-label>
+              <p>Views</p>
               <mat-select [(value)]="selectedViews">
-                <mat-option value="Monthly">Monthly</mat-option>
-                <mat-option value="Weekly">Weekly</mat-option>
-                <mat-option value="Yearly">Yearly</mat-option>
+                <div *ngFor="let list of view">
+                  <mat-option value="{{ list }}">{{ list }}</mat-option>
+                </div>
               </mat-select>
             </mat-form-field>
 
             <mat-form-field appearance="fill">
-              <mat-label>Range</mat-label>
+              <p>Range</p>
               <mat-select [(value)]="selectedRange">
                 <div *ngFor="let month of monthList">
                   <mat-option value="{{ month }}">{{ month }}</mat-option>
@@ -35,7 +33,7 @@
             </mat-form-field>
 
             <mat-form-field appearance="fill">
-              <mat-label>Compare</mat-label>
+              <p>Compare</p>
               <mat-select [(value)]="selectedCompare">
                 <mat-option value="None">None</mat-option>
                 <div *ngFor="let month of monthList">
@@ -49,12 +47,50 @@
       </div>
     </div>
     <div class="col-md-4">
-      <div class="card">
-        <div class="card-body">
-          <h2 class="card-title">Marketing Source</h2>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title">Marketing Source</h2>
 
-          <div class="marketing-data">
-            <app-marketing-pie-chart></app-marketing-pie-chart>
+              <div class="marketing-data">
+                <app-marketing-pie-chart></app-marketing-pie-chart>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title">Current Cash in Drawer</h2>
+              <div class="row">
+                <ng-template
+                  [ngIf]="selectedLocation === 'All'"
+                  [ngIfElse]="none"
+                >
+                  <div
+                    *ngFor="let loc of cash"
+                    class="all-location"
+                    [ngStyle]="{
+                      'border-right':
+                        loc.location !== 'Haryana'
+                          ? ' 1px solid rgba(0,0,0,0.2)'
+                          : none
+                    }"
+                  >
+                    <h1>${{ loc.drawer }}</h1>
+                    <p>{{ loc.location }}</p>
+                  </div>
+                </ng-template>
+                <ng-template #none>
+                  <div *ngFor="let loc of cash" class="one-location">
+                    <ng-template [ngIf]="selectedLocation === loc.location">
+                      <h1>${{ loc.drawer }}</h1>
+                      <p>{{ loc.location }}</p>
+                    </ng-template>
+                  </div>
+                </ng-template>
+              </div>
+            </div>
           </div>
         </div>
       </div>

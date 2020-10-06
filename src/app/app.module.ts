@@ -23,6 +23,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MarketingPieChartComponent } from './marketing-pie-chart/marketing-pie-chart.component';
+import { RevenueComponent } from './revenue/revenue.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MarketingPieChartComponent } from './marketing-pie-chart/marketing-pie-
     SalesCardComponent,
     ChartComponent,
     MarketingPieChartComponent,
+    RevenueComponent,
   ],
   imports: [
     BrowserModule,
