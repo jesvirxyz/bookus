@@ -1,0 +1,62 @@
+<!-- Side navigations -->
+<div class="absolute">
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav
+      #drawer
+      class="sidenav"
+      fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false"
+    >
+      <div class="top-nav">
+        <mat-toolbar>Username </mat-toolbar>
+        <button
+          class="hamburger"
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="true"
+        >
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+      </div>
+
+      <mat-nav-list>
+        <a mat-list-item href="#"
+          ><span><i class="fas fa-home"></i></span>Home</a
+        >
+        <a mat-list-item href="#"
+          ><span><i class="fas fa-calendar-alt"></i></span>Calendar</a
+        >
+        <a mat-list-item href="#"
+          ><span><i class="fas fa-university"></i></span>Sales</a
+        >
+        <a mat-list-item href="#"
+          ><span><i class="fas fa-briefcase"></i></span>Clients</a
+        >
+        <a mat-list-item href="#"
+          ><span><i class="fas fa-chair"></i></span>Staff</a
+        >
+        <a mat-list-item href="#"
+          ><span><i class="fas fa-layer-group"></i></span>Services</a
+        >
+        <a mat-list-item href="#"
+          ><span><i class="fas fa-chart-pie"></i></span>Analytics</a
+        >
+        <a mat-list-item href="#"
+          ><span><i class="fas fa-cog"></i></span>Setup</a
+        >
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar color="primary">
+        <div class="circle"><p>B</p></div>
+        <span>BookUs</span>
+      </mat-toolbar>
+      <!-- Add Content Here -->
+      <ng-content></ng-content>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

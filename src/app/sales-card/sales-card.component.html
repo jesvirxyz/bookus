@@ -1,0 +1,63 @@
+<div class="container-fluid mt-4">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">Sales</h2>
+          <div class="example-container">
+            <mat-form-field appearance="fill">
+              <mat-label>Location</mat-label>
+              <mat-select [(value)]="selectedLocation">
+                <mat-option value="All">All</mat-option>
+                <mat-option value="Noida">Noida</mat-option>
+                <mat-option value="Delhi">Delhi</mat-option>
+                <mat-option value="Ghaziabad">Ghaziabad</mat-option>
+                <mat-option value="Haryana">Haryana</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Views</mat-label>
+              <mat-select [(value)]="selectedViews">
+                <mat-option value="Monthly">Monthly</mat-option>
+                <mat-option value="Weekly">Weekly</mat-option>
+                <mat-option value="Yearly">Yearly</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Range</mat-label>
+              <mat-select [(value)]="selectedRange">
+                <div *ngFor="let month of monthList">
+                  <mat-option value="{{ month }}">{{ month }}</mat-option>
+                </div>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Compare</mat-label>
+              <mat-select [(value)]="selectedCompare">
+                <mat-option value="None">None</mat-option>
+                <div *ngFor="let month of monthList">
+                  <mat-option value="{{ month }}">{{ month }}</mat-option>
+                </div>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <app-chart></app-chart>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">Marketing Source</h2>
+
+          <div class="marketing-data">
+            <app-marketing-pie-chart></app-marketing-pie-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

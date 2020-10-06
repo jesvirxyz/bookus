@@ -1,0 +1,75 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 250px;
+  background: #2d323e;
+}
+
+.sidenav .mat-toolbar {
+  color: #fff;
+  background: #1e2129;
+}
+
+.mat-nav-list {
+  background: #2d323e;
+  color: #fff;
+}
+
+.mat-nav-list a {
+  color: #fff;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: inherit;
+  border: 1px solid rgb(187, 187, 187);
+}
+
+mat-nav-list a:hover {
+  background: #039be5;
+  color: #2d323e;
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  background-color: #2d323e;
+  border-radius: 50%;
+  position: relative;
+  margin-right: 10px;
+}
+
+.circle p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+
+.fas {
+  margin-right: 3rem;
+  font-size: 1.5rem;
+}
+
+.hamburger {
+  margin-right: 10px;
+  color: #fff;
+  outline: none;
+}
+
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1e2129;
+}
+
+.absolute {
+  height: 100%;
+}
